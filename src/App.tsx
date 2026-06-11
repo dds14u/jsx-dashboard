@@ -166,7 +166,7 @@ function HBar({ data, color, maxX }) {
             fontSize: 14,
           }}
           formatter={(v) => [
-            v + ' \u4eba \u00b7 ' + Math.round((v / TOTAL) * 100) + '%',
+            v + ' \u4eba \u00b7 ' + Math.round((Number(v) / TOTAL) * 100) + '%',
             '\u9009\u62e9',
           ]}
         />
@@ -185,8 +185,8 @@ function HBar({ data, color, maxX }) {
   );
 }
 
-function MiniBar({ data, color, vertical, height }) {
-  const h = height || 230;
+function MiniBar({ data, color, vertical = false, height = 230 }) {
+  const h = height;
   if (vertical) {
     return (
       <ResponsiveContainer width="100%" height={data.length * 44 + 16}>
